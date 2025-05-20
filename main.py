@@ -485,7 +485,7 @@ def main():
     elif choice == '19': mp4()
     elif choice == '20': table()
     elif choice == '21': read()
-    elif choice == '22': change_theme()
+    elif choice == '27': change_theme()
     elif choice == '23': scanner()
     elif choice == '24': system_scanner()
     elif choice == '25': gen_dni()
