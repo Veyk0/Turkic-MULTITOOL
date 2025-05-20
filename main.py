@@ -462,7 +462,7 @@ def main():
         print(color.white + i,end="")
         time.sleep(0.001)
 
-    print(color.red + f'\n┌── <{hostname}$Turkic-Multitool 𖥠 ')
+    print(color.red + f'\n┌── <{hostname}> Turkic-Multitool 𖥠 ')
     choice = input('└──╼ $ ')
 
     if choice == '00': exit()
