@@ -1,3 +1,17 @@
+If you want to run the tool you need these requirements :
+
+
+
+
+
+
+
+
+
+
+
+
+
 pip install colorama
 pip install Fore
 pip install Style
