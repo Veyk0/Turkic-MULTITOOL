@@ -197,8 +197,8 @@ def main():
     {03} gen ip
     {04} gen phone
     {05} get my public ip
-    {08} discord id info
-    {09} scan the port of my computer
+    {06} discord id info
+    {07} scan the port of my computer
 '''
 
     for i in options:
@@ -215,8 +215,8 @@ def main():
     elif choice == '03': gen_ip()
     elif choice == '04': gen_phone()
     elif choice == '05': get_public()
-    elif choice == '08': id_info()
-    elif choice == '09': system_scanner()
+    elif choice == '06': id_info()
+    elif choice == '07': system_scanner()
     else: error()
 
 try:   
