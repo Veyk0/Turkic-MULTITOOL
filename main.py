@@ -1,8 +1,6 @@
 from colorama import Fore, Style
-import os, socket, sys, requests, pywhatkit, pyshorteners, base64, qrcode, sqlite3, platform, time, datetime, random
+import os, socket, sys, requests, pywhatkit, pyshorteners, sqlite3, platform, time, datetime, random
 from faker import Faker  
-from prettytable import PrettyTable
-from random import sample
 import PyPDF2
 
 faker = Faker()  
@@ -16,8 +14,6 @@ class color:
     red = Fore.RED + Style.BRIGHT
     white = Fore.WHITE + Style.BRIGHT
     reset = Fore.RESET + Style.RESET_ALL
-
-
 
 def clear():
     if os.name == 'nt': os.system('cls')
@@ -36,19 +32,11 @@ def ret():
     main()
 
 def error():
-    print(color.white + f'\n[&] Inexpected error in the {color.red}Turkic-Multitool{color.white}')
+    print(color.white + f'\n[&] Unexpected error in the {color.red}Turkic-Multitool{color.white}')
     ret()
 
 def get_ip():
-    print(color.white + '\n[&] Your IP adress is: ' + color.red + ip)
-    ret()
-
-def verify():
-    try:
-        res = requests.get('https://www.google.com')
-        print(color.white + f'\n[&] You are {color.red}connected{color.white} to Internet')
-    except:
-        print(color.white + f"\n[&] You {color.red}aren't connected{color.white} to Internet")
+    print(color.white + '\n[&] Your IP address is: ' + color.red + ip)
     ret()
 
 def send_discord():
@@ -57,7 +45,6 @@ def send_discord():
         message = input(color.white + '[&] Enter the message to send: ')
         requests.post(webhook, json={'username': 'BlueWolf', 'content': message})
         print(color.white + f'[&] Message {color.red}sended{color.white} successfully')
-
     except:
         error()
 
@@ -69,53 +56,6 @@ def gen_ip():
 def gen_phone():
     false_phone = faker.phone_number()
     print(color.white + '\n[&] The false phone number is: ' + color.red + false_phone)
-    ret()
-
-def send_whatsapp():
-    try:
-        choice = input(color.white + '\n[&] Enter the phone number to send the message: ')
-        message = input(color.white + '[&] Enter the message to send: ')
-        pywhatkit.sendwhatmsg_instantly(choice, message)
-        
-        print(f'\n[&] Message {color.red}sended{color.white} successfully')
-        
-    except:
-        error()
-
-    ret()
-
-def binary():
-    choice = input(color.white + '\n[&] Enter the plain text to convert: ')
-    binary = ' '.join(format(ord(caracter), '08b') for caracter in choice)
-    print(color.white + '[&] The binary code generated is: ' + color.blue + binary)
-    ret()
-
-def parrot():
-    try:
-        os.system('curl parrot.live')
-
-    except KeyboardInterrupt:
-        print(color.white + f'\n\n[&] Operation {color.red}interrupted')
-    
-    except:
-        error()
-
-    ret()
-
-def info():
-    choice = f'''
-[&]: Turkic multitool by {color.red}Masrova
-{color.white}[&] Discord server: {color.red}https://discord.gg/BcdSWceD6U
-{color.white}[&] Web page: {color.red}https://github.com/Veyk0/Turkic-MULTITOOL.git
-'''
-    print(color.white + choice)
-    ret()
-
-def get_public():
-    res = requests.get('https://api.ipify.org?format=json')
-    public_ip = res.json()['ip']
-
-    print(color.white + f'\n[&] The public IP adress is: ' + color.red + public_ip)
     ret()
 
 def generate_pass():   
@@ -130,18 +70,8 @@ def generate_pass():
     sequence = abc_lower + abc_upper + numbers + characters
     password = sample(sequence, measure)
     
-
     password_result = "".join(password)
     print(color.white + '[&] The result password is: ' + color.red + password_result)
-    ret()
-
-def read_pdf():
-    choice = input(color.white + '\n[&] Enter the path or the name of the PDF file to read: ')
-    reader = PyPDF2.PdfReader(choice)
-
-    print(color.white + '[&] The PDF have ' + color.red + str(len(reader.pages)) + color.white + 'pages')
-    print(color.white + '[&] The text of the PDF file is: \n' + color.red + reader.pages[0].extract_text())
-
     ret()
 
 def mask_url():
@@ -153,19 +83,9 @@ def mask_url():
         word = input(color.white + '[&] Enter the social engineering words separated by "-" (eg. free-gems): ')
         ey = ey.replace("https://", "")
         print(color.white + f'[&] The masked URL: {color.red}{mod}-{word}${ey}')
-
     except:
         error()
 
-    ret()
-
-def enc_base64():
-    choice = input(color.white + '\n[&] Enter the plain text to encode: ')
-
-    text_bytes = choice.encode('utf-8')
-    encrypted_text = base64.b64encode(text_bytes)
-
-    print(color.white + '[&] The text encrypted in base64 is: ' + color.red + str(encrypted_text.decode("utf-8")))
     ret()
 
 def get_size():
@@ -175,220 +95,19 @@ def get_size():
     print(color.white + '[&] The size of the file is: ' + color.red + str(sizefile) + color.white + ' bytes')
     ret()
 
-def qr_code():
-    try:
-        choice = input(color.white + '\n[&] Enter the URL or text to generate in the QR Code: ')
-        arch = input(color.white + '[&] Enter the archive name to save the QR Code (the .png is auto completed): ')
+def get_public():
+    res = requests.get('https://api.ipify.org?format=json')
+    public_ip = res.json()['ip']
 
-        img = qrcode.make(choice)
-        f = open(arch + '.png', "wb")
-        img.save(f)
-        f.close()
-
-        print(color.white + '\n[&] The QR Code is generated in the file ' + color.red + arch)
-
-    except:
-        error()
-
-    ret()  
-
-def clear_chrome_history():
-    if platform.system() == 'Windows':
-        history_path = os.path.expanduser('~') + r'\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\History'
-    elif platform.system() == 'Linux':
-        history_path = os.path.expanduser('~') + '/.config/google-chrome/Default/History'
-    else:
-        print(color.white + f'[&]: System {color.red}not supported{color.white} for Chrome')
-        return
-    
-    if os.path.exists(history_path):
-        conn = sqlite3.connect(history_path)
-        cursor = conn.cursor()
-
-        cursor.execute("DELETE FROM urls")
-        conn.commit()
-
-        cursor.close()
-        conn.close()
-
-        print(color.white + f'[&] Chrome history {color.red}deleted{color.white} successfully')
-    else:
-        print(color.white + f"[&] Chrome historial archive " + color.red + 'not found')
-
-def clear_firefox_history():
-    if platform.system() == "Windows":
-        profiles_path = os.path.expanduser('~') + r"\AppData\Roaming\Mozilla\Firefox\Profiles"
-    elif platform.system() == "Linux":
-        profiles_path = os.path.expanduser('~') + "/.mozilla/firefox/"
-    else:
-        print(color.white + f'[&] System {color.blue}not supported{color.white} for Firefox')
-        return
-
-    for root, dirs, files in os.walk(profiles_path):
-        for dir in dirs:
-            profile_path = os.path.join(root, dir)
-            places_path = os.path.join(profile_path, "places.sqlite")
-            if os.path.exists(places_path):
-                conn = sqlite3.connect(places_path)
-                cursor = conn.cursor()
-
-                cursor.execute("DELETE FROM moz_historyvisits")
-                cursor.execute("DELETE FROM moz_places")
-                conn.commit()
-
-                cursor.close()
-                conn.close()
-
-                print(color.white + f'[&] Firefox history {color.red}deleted{color.white} successfully')
-                return
-
-    print(color.white + f"[&] Firefox historial archive " + color.red + 'not found')
-
-def clear_browser_history():
-    browsers = {
-        "Chrome": clear_chrome_history,
-        "Firefox": clear_firefox_history,
-    }
-
-    for browser, clear_func in browsers.items():
-        try:
-            clear_func()
-        except Exception as e:
-            error()
-
-def history():
-    print(color.white + '\n[&] Cleaning history...')
-    try:
-        clear_browser_history()
-        ret()
-
-    except:
-        error()
-
+    print(color.white + f'\n[&] The public IP address is: ' + color.red + public_ip)
     ret()
 
-def mp3():
-    try:
-        print(color.white + '\n[&] The version is only support for ' + color.red + 'Windows')
-        choice = input(color.white + '\n[&] Enter the URL of the YouTube video to download mp3: ')
-        os.system(f'youtube-download-cli "{choice}" mp3')
-        print(color.white + '[&] The audio was saved in the ' + color.red + 'downloads ' + color.white + 'folder')
-        
-    except:
-        error()
-        
-    ret()
+def read_pdf():
+    choice = input(color.white + '\n[&] Enter the path or the name of the PDF file to read: ')
+    reader = PyPDF2.PdfReader(choice)
 
-def mp4():
-    try:
-        print(color.white + '\n[&] The version is only support for ' + color.red + 'Windows')
-        choice = input(color.white + '\n[&] Enter the URL of the YouTube video to download mp3: ')
-        os.system(f'youtube-download-cli "{choice}" mp3')
-        print(color.white + '[&] The video was saved in the ' + color.red + 'downloads ' + color.white + 'folder'),
-
-    except:
-        error()
-        
-    ret()
-
-def table():
-    choice = int(input(color.white + '\n[&] Enter the number of people to generate data: ' + color.white))
-
-    table = PrettyTable()
-    table.field_names = ["Name", "Last Name", "Email", "Adress", "City", "Phone Number", "IP"]
-
-    for _ in range(choice):
-        name = faker.first_name()
-        last_name = faker.last_name()
-        email = faker.email()
-        adress = faker.address()
-        city = faker.city()
-        phone_number = faker.phone_number()
-        ip = faker.ipv4()
-        table.add_row([name, last_name, email, adress, city, phone_number, ip])
-
-    print(table)
-    ret()
-
-def read():
-    try:
-        print(color.white + f'\n[&] The database {color.blue}content{color.white} is: \n')
-        arch = open('data/xss-sites.txt')
-        print(color.blue + arch.read() + '\n')
-    except:
-        error()
-
-    ret()
-
-def change_theme():
-    color.red = Fore.GREEN + Style.BRIGHT
-    color.white = Fore.WHITE + Style.BRIGHT
-
-    print(color.white + '\n[&] Color theme changed to green')
-    ret()
-
-def scan(target):
-    try:
-            print(color.white + '\n[&] Starting scanning to ' + color.red + target + color.white + '\n')
-            for port in range(1,65535):
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                socket.setdefaulttimeout(1)
-                
-                result = s.connect_ex((target,port))
-                if result ==0:
-                    print(color.red + 'The port {} is open'.format(port))
-                s.close()
-                
-    except KeyboardInterrupt:
-        print(color.white + '\n[&] Operation interrupted')
-        ret()
-
-    except socket.gaierror:
-        print(color.white + '\n[&]Hostname could not be resolved')
-        ret()
-
-    except socket.error:
-        print(color.white + '\n[&] Server not responding')
-        ret()
-
-def scanner():
-    target = input(color.white + '\n[&] Enter the target IP to scan: ')
-    scan(target)
-
-def system_scanner():
-    scan(ip)
-
-def gen_dni():
-    POSSIBLE_LETTERS = (
-        "T",
-        "R",
-        "W",
-        "A",
-        "G",
-        "M",
-        "Y",
-        "F",
-        "P",
-        "D",
-        "X",
-        "B",
-        "N",
-        "J",
-        "Z",
-        "S",
-        "Q",
-        "V",
-        "H",
-        "L",
-        "C",
-        "K",
-        "E",
-        "T",
-    )
-
-    choice = random.randint(10000000, 99999999)
-    letter = POSSIBLE_LETTERS[choice % 23]
-    print(color.white + f'\n[&] The generated DNI is: {color.red}{choice}{letter}')
+    print(color.white + '[&] The PDF has ' + color.red + str(len(reader.pages)) + color.white + ' pages')
+    print(color.white + '[&] The text of the PDF file is: \n' + color.red + reader.pages[0].extract_text())
 
     ret()
 
@@ -419,12 +138,38 @@ def id_info():
             print(color.red + '\n-------------------------------------------------------------------------------' + color.RESET)
             
         else:
-            print(color.RED + f'[>] Error: The response not arrrived. Status code: {response.status_code}')
+            print(color.RED + f'[>] Error: The response did not arrive. Status code: {response.status_code}')
 
     except:
         error()
 
     ret()
+
+def scan(target):
+    try:
+        print(color.white + '\n[&] Starting scanning to ' + color.red + target + color.white + '\n')
+        for port in range(1,65535):
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            socket.setdefaulttimeout(1)
+            
+            result = s.connect_ex((target, port))
+            if result == 0:
+                print(color.red + f'The port {port} is open')
+            s.close()
+    except KeyboardInterrupt:
+        print(color.white + '\n[&] Operation interrupted')
+        ret()
+
+    except socket.gaierror:
+        print(color.white + '\n[&] Hostname could not be resolved')
+        ret()
+
+    except socket.error:
+        print(color.white + '\n[&] Server not responding')
+        ret()
+
+def system_scanner():
+    scan(ip)
 
 def main():
     clear()
@@ -452,11 +197,10 @@ def main():
     {03} gen ip
     {04} gen phone
     {05} get my public ip
-    {06} gen a password ( ❌ )
-    {07} mask a url
     {08} discord id info
-    {09} scan the port of my camputer
+    {09} scan the port of my computer
 '''
+
     for i in options:
         sys.stdout.flush()
         print(color.white + i,end="")
@@ -471,10 +215,8 @@ def main():
     elif choice == '03': gen_ip()
     elif choice == '04': gen_phone()
     elif choice == '05': get_public()
-    elif choice == '06': generate_pass()
-    elif choice == '07': mask_url()
-    elif choice == '09': system_scanner()
     elif choice == '08': id_info()
+    elif choice == '09': system_scanner()
     else: error()
 
 try:   
