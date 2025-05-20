@@ -12,8 +12,8 @@ ip = socket.gethostbyname(hostname)
 date = datetime.datetime.now()
 
 class color:
-    red = Fore.RED + Style.BRIGHT
     blue = Fore.BLUE + Style.BRIGHT
+    red = Fore.RED + Style.BRIGHT
     white = Fore.WHITE + Style.BRIGHT
     reset = Fore.RESET + Style.RESET_ALL
 
@@ -34,19 +34,19 @@ def ret():
     main()
 
 def error():
-    print(color.white + f'\n[&] Inexpected error in the {color.blue}THN-Multitool{color.white}')
+    print(color.white + f'\n[&] Inexpected error in the {color.red}THN-Multitool{color.white}')
     ret()
 
 def get_ip():
-    print(color.white + '\n[&] Your IP adress is: ' + color.blue + ip)
+    print(color.white + '\n[&] Your IP adress is: ' + color.red + ip)
     ret()
 
 def verify():
     try:
         res = requests.get('https://www.google.com')
-        print(color.white + f'\n[&] You are {color.blue}connected{color.white} to Internet')
+        print(color.white + f'\n[&] You are {color.red}connected{color.white} to Internet')
     except:
-        print(color.white + f"\n[&] You {color.blue}aren't connected{color.white} to Internet")
+        print(color.white + f"\n[&] You {color.red}aren't connected{color.white} to Internet")
     ret()
 
 def send_discord():
@@ -54,19 +54,19 @@ def send_discord():
         webhook = input(color.white + '\n[&] Enter the URL of your server WebHook: ')
         message = input(color.white + '[&] Enter the message to send: ')
         requests.post(webhook, json={'username': 'BlueWolf', 'content': message})
-        print(color.white + f'[&] Message {color.blue}sended{color.white} successfully')
+        print(color.white + f'[&] Message {color.red}sended{color.white} successfully')
 
     except:
         error()
 
 def gen_ip():
     false_ip = faker.ipv4() 
-    print(color.white + '\n[&] The false IP address is: ' + color.blue + false_ip)
+    print(color.white + '\n[&] The false IP address is: ' + color.red + false_ip)
     ret()
 
 def gen_phone():
     false_phone = faker.phone_number()
-    print(color.white + '\n[&] The false phone number is: ' + color.blue + false_phone)
+    print(color.white + '\n[&] The false phone number is: ' + color.red + false_phone)
     ret()
 
 def send_whatsapp():
@@ -75,7 +75,7 @@ def send_whatsapp():
         message = input(color.white + '[&] Enter the message to send: ')
         pywhatkit.sendwhatmsg_instantly(choice, message)
         
-        print(f'\n[&] Message {color.blue}sended{color.white} successfully')
+        print(f'\n[&] Message {color.red}sended{color.white} successfully')
         
     except:
         error()
@@ -93,7 +93,7 @@ def parrot():
         os.system('curl parrot.live')
 
     except KeyboardInterrupt:
-        print(color.white + f'\n\n[&] Operation {color.blue}interrupted')
+        print(color.white + f'\n\n[&] Operation {color.red}interrupted')
     
     except:
         error()
@@ -102,9 +102,9 @@ def parrot():
 
 def info():
     choice = f'''
-[&]: Turkic multitool by {color.blue}Masrova
-{color.white}[&] Discord server: {color.blue}https://discord.gg/BcdSWceD6U
-{color.white}[&] Web page: {color.blue}https://github.com/Veyk0/Turkic-MULTITOOL.git
+[&]: Turkic multitool by {color.red}Masrova
+{color.white}[&] Discord server: {color.red}https://discord.gg/BcdSWceD6U
+{color.white}[&] Web page: {color.red}https://github.com/Veyk0/Turkic-MULTITOOL.git
 '''
     print(color.white + choice)
     ret()
@@ -113,7 +113,7 @@ def get_public():
     res = requests.get('https://api.ipify.org?format=json')
     public_ip = res.json()['ip']
 
-    print(color.white + f'\n[&] The public IP adress is: ' + color.blue + public_ip)
+    print(color.white + f'\n[&] The public IP adress is: ' + color.red + public_ip)
     ret()
 
 def generate_pass():   
@@ -130,15 +130,15 @@ def generate_pass():
     
 
     password_result = "".join(password)
-    print(color.white + '[&] The result password is: ' + color.blue + password_result)
+    print(color.white + '[&] The result password is: ' + color.red + password_result)
     ret()
 
 def read_pdf():
     choice = input(color.white + '\n[&] Enter the path or the name of the PDF file to read: ')
     reader = PyPDF2.PdfReader(choice)
 
-    print(color.white + '[&] The PDF have ' + color.blue + str(len(reader.pages)) + color.white + 'pages')
-    print(color.white + '[&] The text of the PDF file is: \n' + color.blue + reader.pages[0].extract_text())
+    print(color.white + '[&] The PDF have ' + color.red + str(len(reader.pages)) + color.white + 'pages')
+    print(color.white + '[&] The text of the PDF file is: \n' + color.red + reader.pages[0].extract_text())
 
     ret()
 
@@ -150,7 +150,7 @@ def mask_url():
         mod = input(color.white + '[&] Enter the domain you want to supplant (eg. https://google.com): ')
         word = input(color.white + '[&] Enter the social engineering words separated by "-" (eg. free-gems): ')
         ey = ey.replace("https://", "")
-        print(color.white + f'[&] The masked URL: {color.blue}{mod}-{word}@{ey}')
+        print(color.white + f'[&] The masked URL: {color.red}{mod}-{word}@{ey}')
 
     except:
         error()
@@ -163,14 +163,14 @@ def enc_base64():
     text_bytes = choice.encode('utf-8')
     encrypted_text = base64.b64encode(text_bytes)
 
-    print(color.white + '[&] The text encrypted in base64 is: ' + color.blue + str(encrypted_text.decode("utf-8")))
+    print(color.white + '[&] The text encrypted in base64 is: ' + color.red + str(encrypted_text.decode("utf-8")))
     ret()
 
 def get_size():
     choice = input(color.white + '\n[&] Enter the file or path to the file to view size: ')
 
     sizefile = os.stat(choice).st_size
-    print(color.white + '[&] The size of the file is: ' + color.blue + str(sizefile) + color.white + ' bytes')
+    print(color.white + '[&] The size of the file is: ' + color.red + str(sizefile) + color.white + ' bytes')
     ret()
 
 def qr_code():
@@ -183,7 +183,7 @@ def qr_code():
         img.save(f)
         f.close()
 
-        print(color.white + '\n[&] The QR Code is generated in the file ' + color.blue + arch)
+        print(color.white + '\n[&] The QR Code is generated in the file ' + color.red + arch)
 
     except:
         error()
@@ -196,7 +196,7 @@ def clear_chrome_history():
     elif platform.system() == 'Linux':
         history_path = os.path.expanduser('~') + '/.config/google-chrome/Default/History'
     else:
-        print(color.white + f'[&]: System {color.blue}not supported{color.white} for Chrome')
+        print(color.white + f'[&]: System {color.red}not supported{color.white} for Chrome')
         return
     
     if os.path.exists(history_path):
@@ -209,9 +209,9 @@ def clear_chrome_history():
         cursor.close()
         conn.close()
 
-        print(color.white + f'[&] Chrome history {color.blue}deleted{color.white} successfully')
+        print(color.white + f'[&] Chrome history {color.red}deleted{color.white} successfully')
     else:
-        print(color.white + f"[&] Chrome historial archive " + color.blue + 'not found')
+        print(color.white + f"[&] Chrome historial archive " + color.red + 'not found')
 
 def clear_firefox_history():
     if platform.system() == "Windows":
@@ -237,10 +237,10 @@ def clear_firefox_history():
                 cursor.close()
                 conn.close()
 
-                print(color.white + f'[&] Firefox history {color.blue}deleted{color.white} successfully')
+                print(color.white + f'[&] Firefox history {color.red}deleted{color.white} successfully')
                 return
 
-    print(color.white + f"[&] Firefox historial archive " + color.blue + 'not found')
+    print(color.white + f"[&] Firefox historial archive " + color.red + 'not found')
 
 def clear_browser_history():
     browsers = {
@@ -267,10 +267,10 @@ def history():
 
 def mp3():
     try:
-        print(color.white + '\n[&] The version is only support for ' + color.blue + 'Windows')
+        print(color.white + '\n[&] The version is only support for ' + color.red + 'Windows')
         choice = input(color.white + '\n[&] Enter the URL of the YouTube video to download mp3: ')
         os.system(f'youtube-download-cli "{choice}" mp3')
-        print(color.white + '[&] The audio was saved in the ' + color.blue + 'downloads ' + color.white + 'folder')
+        print(color.white + '[&] The audio was saved in the ' + color.red + 'downloads ' + color.white + 'folder')
         
     except:
         error()
@@ -279,10 +279,10 @@ def mp3():
 
 def mp4():
     try:
-        print(color.white + '\n[&] The version is only support for ' + color.blue + 'Windows')
+        print(color.white + '\n[&] The version is only support for ' + color.red + 'Windows')
         choice = input(color.white + '\n[&] Enter the URL of the YouTube video to download mp3: ')
         os.system(f'youtube-download-cli "{choice}" mp3')
-        print(color.white + '[&] The video was saved in the ' + color.blue + 'downloads ' + color.white + 'folder'),
+        print(color.white + '[&] The video was saved in the ' + color.red + 'downloads ' + color.white + 'folder'),
 
     except:
         error()
@@ -319,7 +319,7 @@ def read():
     ret()
 
 def change_theme():
-    color.blue = Fore.GREEN + Style.BRIGHT
+    color.red = Fore.GREEN + Style.BRIGHT
     color.white = Fore.WHITE + Style.BRIGHT
 
     print(color.white + '\n[&] Color theme changed to green')
@@ -327,7 +327,7 @@ def change_theme():
 
 def scan(target):
     try:
-            print(color.white + '\n[&] Starting scanning to ' + color.blue + target + color.white + '\n')
+            print(color.white + '\n[&] Starting scanning to ' + color.red + target + color.white + '\n')
             for port in range(1,65535):
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(1)
@@ -412,9 +412,9 @@ def id_info():
                 return '\n'.join(info)
             
             user_info = format_user_info(data)
-            print(color.blue + '\n[&] User info:\n-------------------------------------------------------------------------------')
+            print(color.red + '\n[&] User info:\n-------------------------------------------------------------------------------')
             print(color.white + user_info)
-            print(color.blue + '\n-------------------------------------------------------------------------------' + color.RESET)
+            print(color.red + '\n-------------------------------------------------------------------------------' + color.RESET)
             
         else:
             print(color.BLUE + f'[>] Error: The response not arrrived. Status code: {response.status_code}')
@@ -439,7 +439,7 @@ def main():
 
     for i in title:
         sys.stdout.flush()
-        print(color.blue + i,end="")
+        print(color.red + i,end="")
         time.sleep(0.001)   
 
     options = '''
@@ -460,7 +460,7 @@ def main():
         print(color.white + i,end="")
         time.sleep(0.001)
 
-    print(color.blue + f'\n┌── <{hostname}@THN-Multitool> ─ [~]')
+    print(color.red + f'\n┌── <{hostname}@THN-Multitool> ─ [~]')
     choice = input('└──╼ $ ')
 
     if choice == '00': exit()
