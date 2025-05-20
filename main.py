@@ -437,10 +437,7 @@ def main():
                     -------------------------------------[TURKIC Multitool]--------------------------------------
 '''
 
-    for i in title:
-        sys.stdout.flush()
-        print(color.blue + i,end="")
-        time.sleep(0.001)
+    
 
     options = '''
     [00]: Exit the program                                [11]: Generate a sure password                  [22]: Change color theme to green    
