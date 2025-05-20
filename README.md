@@ -1,6 +1,6 @@
 
 
-https://www.google.com/imgres?q=turkic%20drapeau&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F3%2F39%2FFlag_of_the_Organization_of_Turkic_States_%25282012%25E2%2580%25932024%2529.svg%2F1280px-Flag_of_the_Organization_of_Turkic_States_%25282012%25E2%2580%25932024%2529.svg.png&imgrefurl=https%3A%2F%2Ffr.m.wikipedia.org%2Fwiki%2FFichier%3AFlag_of_the_Organization_of_Turkic_States_(2012%25E2%2580%25932024).svg&docid=eh9R8mljpTjmtM&tbnid=f8bGbMnDA6dyzM&vet=12ahUKEwjv6ovD2rKNAxWldqQEHazSBNAQM3oECBcQAA..i&w=1280&h=853&hcb=2&ved=2ahUKEwjv6ovD2rKNAxWldqQEHazSBNAQM3oECBcQAA
+
 
 
 
