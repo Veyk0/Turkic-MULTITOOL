@@ -451,7 +451,7 @@ def main():
     {03} gen ip
     {04} gen phone
     {05} get my public ip
-    {06} gen a password
+    {06} gen a password ( ❌ )
     {07} mask a url
     {08} discord id info
     {09} scan the port of my camputer
