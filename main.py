@@ -17,6 +17,8 @@ class color:
     white = Fore.WHITE + Style.BRIGHT
     reset = Fore.RESET + Style.RESET_ALL
 
+
+
 def clear():
     if os.name == 'nt': os.system('cls')
     else: os.system('clear')
@@ -34,7 +36,7 @@ def ret():
     main()
 
 def error():
-    print(color.white + f'\n[&] Inexpected error in the {color.red}THN-Multitool{color.white}')
+    print(color.white + f'\n[&] Inexpected error in the {color.red}Turkic-Multitool{color.white}')
     ret()
 
 def get_ip():
@@ -334,7 +336,7 @@ def scan(target):
                 
                 result = s.connect_ex((target,port))
                 if result ==0:
-                    print(color.blue + 'The port {} is open'.format(port))
+                    print(color.red + 'The port {} is open'.format(port))
                 s.close()
                 
     except KeyboardInterrupt:
@@ -386,7 +388,7 @@ def gen_dni():
 
     choice = random.randint(10000000, 99999999)
     letter = POSSIBLE_LETTERS[choice % 23]
-    print(color.white + f'\n[&] The generated DNI is: {color.blue}{choice}{letter}')
+    print(color.white + f'\n[&] The generated DNI is: {color.red}{choice}{letter}')
 
     ret()
 
@@ -417,7 +419,7 @@ def id_info():
             print(color.red + '\n-------------------------------------------------------------------------------' + color.RESET)
             
         else:
-            print(color.BLUE + f'[>] Error: The response not arrrived. Status code: {response.status_code}')
+            print(color.RED + f'[>] Error: The response not arrrived. Status code: {response.status_code}')
 
     except:
         error()
