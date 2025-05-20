@@ -152,7 +152,7 @@ def mask_url():
         mod = input(color.white + '[&] Enter the domain you want to supplant (eg. https://google.com): ')
         word = input(color.white + '[&] Enter the social engineering words separated by "-" (eg. free-gems): ')
         ey = ey.replace("https://", "")
-        print(color.white + f'[&] The masked URL: {color.red}{mod}-{word}@{ey}')
+        print(color.white + f'[&] The masked URL: {color.red}{mod}-{word}${ey}')
 
     except:
         error()
@@ -462,7 +462,7 @@ def main():
         print(color.white + i,end="")
         time.sleep(0.001)
 
-    print(color.red + f'\n┌── <{hostname}@Turkic-Multitool> ─ [~]')
+    print(color.red + f'\n┌── <{hostname}$Turkic-Multitool 𖥠 ')
     choice = input('└──╼ $ ')
 
     if choice == '00': exit()
