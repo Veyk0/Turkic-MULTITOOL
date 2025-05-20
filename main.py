@@ -445,17 +445,16 @@ def main():
         time.sleep(0.001)   
 
     options = '''
-    [00]: Exit the program                                [11]: Generate a sure password                  [22]: Change color theme to green    
-    [01]: Get my IP address                               [12]: Read PDF file                             [23]: Socket port scanning to a target
-    [02]: Verify the Internet connection                  [13]: Mask an URL                               [24]: Scan the ports of my computer
-    [03]: Send Discord message                            [14]: Encrypt plain text with base64            [25]: Generate a false DNI
-    [04]: Generate false IP address                       [15]: Obtener el espacio que ocupa un archivo   [26]: Discord ID info
-    [05]: Generate false phone number                     [16]: Generate the QR Code of a URL
-    [06]: Send WhatsApp message                           [17]: Clear the browser history
-    [07]: Convert a plain text message in binary code     [18]: Download mp3 audio of a YouTube video
-    [08]: View parrot.live                                [19]: Download mp4 video of YouTube
-    [09]: Credits and info about this proyect             [20]: Generate a table with false user data
-    [10]: Get my public IP address                        [21]: Read XSS vulnerable sites DataBase
+    {00} exit 
+    {01} get my ip
+    {02} send a message discord
+    {03} gen ip
+    {04} gen phone
+    {05} get my public ip
+    {06} gen a password
+    {07} mask a url
+    {08} discord id info
+    {09} scan the port of my camputer
 '''
     for i in options:
         sys.stdout.flush()
@@ -467,31 +466,14 @@ def main():
 
     if choice == '00': exit()
     elif choice == '01': get_ip()
-    elif choice == '02': verify()
-    elif choice == '03': send_discord()
-    elif choice == '04': gen_ip()
-    elif choice == '05': gen_phone()
-    elif choice == '06': send_whatsapp()
-    elif choice == '07': binary()
-    elif choice == '08': parrot()
-    elif choice == '09': info()
-    elif choice == '10': get_public()
-    elif choice == '11': generate_pass()
-    elif choice == '12': read_pdf()
-    elif choice == '13': mask_url()
-    elif choice == '14': enc_base64()
-    elif choice == '15': get_size()
-    elif choice == '16': qr_code()
-    elif choice == '17': history()
-    elif choice == '18': mp3()
-    elif choice == '19': mp4()
-    elif choice == '20': table()
-    elif choice == '21': read()
-    elif choice == '27': change_theme()
-    elif choice == '23': scanner()
-    elif choice == '24': system_scanner()
-    elif choice == '25': gen_dni()
-    elif choice == '26': id_info()
+    elif choice == '02': send_discord()
+    elif choice == '03': gen_ip()
+    elif choice == '04': gen_phone()
+    elif choice == '05': get_public()
+    elif choice == '06': generate_pass()
+    elif choice == '07': mask_url()
+    elif choice == '09': system_scanner()
+    elif choice == '08': id_info()
     else: error()
 
 try:   
